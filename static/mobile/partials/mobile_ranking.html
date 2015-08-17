@@ -1,0 +1,87 @@
+<style>
+    .ng-drawer-mounting-right{
+        position:           absolute;
+        width:              0 !important;
+        overflow:           visible !important;
+        overflow-x:         visible !important;
+        direction:          rtl !important;
+    }
+
+    .ng-drawer-mounting-left{
+        position:           absolute;
+        width:              0 !important;
+        overflow:           visible !important;
+        overflow-x:         visible !important;
+        direction:          ltr !important;
+    }
+
+
+    [prefr-mobile-ranking]{
+        display:            block;
+        position:           fixed;
+        top:                0;
+        bottom:             0;
+        right:              0;
+        left:               0;
+        z-index:            999;
+
+        background:         #000;
+
+
+        padding:            0;
+    }
+
+    [ng-drawer]{
+        width:              8em;
+    }
+
+
+    #ranks,
+    #unranked {
+        display:            block;
+        position:           fixed;
+        top:                0;
+        bottom:             0;
+        overflow-y:         scroll;
+        overflow-x:         visible;
+    }
+
+    #ranked {
+        left:               0;
+    }
+
+    #unranked {
+        right:              0;
+    }
+
+    .option {
+        display:            block;
+        font-size:          3em;
+        line-height:        1em;
+        height:             1em;
+        width:              5em;
+        background:         #fff;
+        color:              #000;
+        text-align:         center;
+    }
+
+
+</style>
+
+<div prefr-mobile-ranking>
+    {{test}}
+    <div id = "ranked"       class = "ng-drawer-mounting-left">
+        <article ng-drawer = "left" ng-repeat = "option in ranked">
+            <div class="option" value = "{{option}}">
+                {{option}} {{option}} {{option}}
+            </div>
+        </article>
+    </div>    
+    <div id = "unranked"    class = "ng-drawer-mounting-right">
+        <article ng-drawer = "right" ng-repeat = "option in unranked">
+            <div class="option" value = "{{option}}">
+                {{option}} {{option}} {{option}}
+            </div>
+        </article>
+    </div>
+</div>

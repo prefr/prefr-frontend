@@ -7,13 +7,13 @@ var prefr   =   angular.module(
                                 'ngRoute',
                                 'ngAnimate',
                                 'ngSanitize',
-                                'ngDrawable',
                                 'prefrServices',
                                 'prefrControllers',
                                 'prefrDirectives',
                                 'prefrFilters',  
                                 'ngGitReleases',
-                                'ngFlattr'                                                             
+                                'ngFlattr',
+                                'prefrMobile'                                                             
                             ]
                         )
 
@@ -44,7 +44,7 @@ prefr.config([
 
     function($config, $routeProvider, $locationProvider, $httpProvider, apiProvider, ngGitReleasesProvider) {
 
-        apiProvider.setApiUrl('http://api.prefr.org/api')        
+        apiProvider.setApiUrl('/api')        
 
         $routeProvider
         .when(
@@ -82,6 +82,16 @@ prefr.config([
                 templateUrl :   'static/partials/pull_test.html'
             }
         )
+        // mobile:
+         
+        .when(
+            '/mobile',
+            {
+                templateUrl:   'static/mobile/partials/mobile_ranking.html'
+            }
+        ) 
+        
+        //
         .otherwise({
             redirectTo:     '/ballotBox/new'
         })

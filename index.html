@@ -7,9 +7,9 @@
 		<link type="text/css" rel="stylesheet" href="static/styles/styles.css"></link>
 		<link type="text/css" rel="stylesheet" href="static/styles/font-awesome.css"></link>
 
-		<script src="core/lib/jquery-2.0.3.min.js"></script>
-		<script src="core/lib/angular.min.js"></script>
-		<script src="core/lib/angular-route.min.js"></script>
+		<script src="static/lib/jquery-2.0.3.min.js"></script>
+		<script src="static/lib/angular.min.js"></script>
+		<script src="static/lib/angular-route.min.js"></script>
 
 		<script src="static/lib/angular-animate.min.js"></script>
 		<script src="static/lib/angular-sanitize.min.js"></script>
@@ -20,8 +20,13 @@
 		<script src="static/js/controllers.js"></script>
 		<script src="static/js/filters.js"></script>
 		<script src="static/js/ngGitReleases.js"></script>
-		<script src="static/js/ngDrawable.js"></script>
 		<script src="static/js/ngFlattr.js"></script>
+
+		<!-- mobile -->
+		<script src="static/ng-drawer/src/ng-drawer.js"></script>
+		<script src="static/mobile/js/prefr_mobile_module.js"></script>
+
+		<!-- app -->
 		<script src="static/js/app.js"></script>
 
 	</head>
@@ -85,6 +90,9 @@
 
 		</header> 
 
+
+
+
 		<section ng-view autoscroll	= "true">
 			<article class = "ui-white left right ui-deep-shadow-ex">
 				<p class = "ui-tac">
@@ -92,6 +100,9 @@
 				</p>
 			</article>
 		</section>
+
+
+		
 		
 		<footer class = "ui-dark-white">
 
