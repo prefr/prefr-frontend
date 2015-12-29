@@ -1,0 +1,39 @@
+
+<article ng-if = "!ballot">
+	<header>
+		<h1>Missing ballot id</h1>
+	</header>
+
+	<a href="/?force_desktop">Force desktop version</a>
+</article>
+
+<article ng-if ="!!ballot">
+	<header>
+		<button class = "large">{{ballot.subject || '(missing subject)'}}</button><!--
+	 --><button class = "small" disabled><i class = "fa fa-gear"></i></button>
+
+		<h1>Whose vote to change?</h1>
+	</header>
+
+	<section 
+		class 	= "pick-paper"
+	>
+		<div ng-if ="log[0]">
+			{{log[0]}}
+		</div>
+
+		<button
+			ng-click = "newPaper()"
+		>
+			add a new participant 
+		</button>
+		<br/>
+		<br/>
+		<button 
+			ng-repeat   = "paper in ballot.papers"
+			ng-click    = "editPaper(paper)"
+		>
+			{{paper.participant || "(missing name)"}}
+		</button>
+	</section>
+</article>

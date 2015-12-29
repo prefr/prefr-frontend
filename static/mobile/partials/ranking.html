@@ -1,0 +1,68 @@
+<header>
+    <button class = "large" ng-click = "nameModal = true">{{activePaper.participant || '(missing name)'}}</button><!--
+ --><button class = "small" ng-click = "pickPaper()"><i class ="fa fa-bars"></i></button>
+    <h1> {{ballot.subject || '(missing subject)'}}</h1>
+    <div>ranked</div><!--
+ --><div>unranked</div>
+</header>
+
+<article class = "modal" ng-show="nameModal">
+    <div class ="content">
+        <h3>Please enter a name.</h3>
+        <input ng-model = "activePaper.participant"></input>
+        <button ng-click = "nameModal = false" ng-disabled = "!activePaper.participant">OK</button>
+    </div>
+</article>
+
+<prefr-mobile-ranking 
+    ng-if           = "ready"
+    ranking-model-a = "activePaper.ranking"
+    ranking-model-b = "unranked" 
+    ranks-b-fixed   = "true"
+>
+
+    <prefr-mobile-ranking-container 
+        ranking-model   = "A" 
+        id              = "ranked"
+    >
+        <prefr-mobile-rank class = "ng-drawer-mounting-left" >
+            <prefr-mobile-option
+                ng-drawer   = "left"
+                value       = "{{value}}"
+            >
+                <div class = "option">
+                    <div class ="content">
+                        <span>{{value}}</span><!--
+                     --><div>{{options[value].title}}</div>
+                    </div>
+                </div>
+            </prefr-mobile-option>
+        </prefr-mobile-rank>
+    </prefr-mobile-ranking-container>
+
+    <prefr-mobile-ranking-container 
+        ranking-model   = "B" 
+        id              = "unranked"
+    >
+        <prefr-mobile-rank class = "ng-drawer-mounting-right" >
+            <prefr-mobile-option
+                ng-drawer   = "right"
+                value       = "{{value}}"
+            >
+                <div class = "option">
+                    <div class ="content">
+                        <span>{{value}}</span><!--
+                     --><div>{{options[value].title}}</div>
+                    </div>
+                </div>
+            </prefr-mobile-option>
+        </prefr-mobile-rank>
+    </prefr-mobile-ranking-container>
+</prefr-mobile-ranking>
+
+<footer>
+     <i 
+        ng-click    = "save()"
+        class       = "fa fa-check"
+    ></i>
+</footer>
